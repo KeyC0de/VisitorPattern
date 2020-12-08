@@ -23,7 +23,7 @@ Visitor is a behavioral software design pattern is a good choice if you would wa
 - Create a `Visitor` Class Hierarchy that defines a pure virtual `visit()` method. Each `visit` method accepts a single argument, a pointer or reference to an original `Element` derived class.
 - Create `Visitor` sub-classes, one subclass for a single operation you want to perform on the `Element` objects.
 - Add a single pure virtual `accept(Visitor& v)` method to the base class of the `Element` hierarchy. `accept` is defined to receive a single argument, a (non-const) pointer or reference to the abstract base class of the `Visitor` hierarchy. Preferably a reference such that you can also pass it temporaries.
-- Each concrete derived class of `Element` implements the `accept` method by simply calling the `visit` method on the concrete derived of the `Visitor` hierarchy that was passed, passing its ``this` pointer as the sole argument.
+- Each concrete derived class of `Element` implements the `accept` method by simply calling the `visit` method on the concrete derived of the `Visitor` hierarchy that was passed, passing its `this` pointer as the sole argument.
 - When a client needs an operation to be performed on a derived `Element` class he creates an instance of the `Visitor` object, calls the `accept` method on the `Element` object and passes the visitor. If the client wants a new operation to be performed on `Element` types he simply creates a new sublcass of `Visitor`.
 
 I urge you to look at the example (make sure main\_visited.cpp and with\_visitor.cpp are excluded from compilation first by selecting them in Visual Studio -> right click -> properties -> General -> Excluded from Build: write "Yes" ).
