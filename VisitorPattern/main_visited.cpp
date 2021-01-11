@@ -1,14 +1,15 @@
 #include "with_visitor.h"
 
+
 int main()
 {
 	Person* pg = new Good{};
 	Person* pb = new Bad{};
 	Person* pu = new Ugly{};
 
-	auto pg2 = std::make_unique<Good>( L"Good2" );
-	Person* pb2 = new Bad{ L"Bad2" };
-	auto pu2 = std::make_unique<Ugly>( L"Ugly2" );
+	auto pg2 = std::make_unique<Good>( "Good2" );
+	Person* pb2 = new Bad{ "Bad2" };
+	auto pu2 = std::make_unique<Ugly>( "Ugly2" );
 
 	VisitorGreets visitorGreets;
 

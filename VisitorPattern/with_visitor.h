@@ -1,5 +1,6 @@
 #include <string>
 
+
 class Good;
 class Bad;
 class Ugly;
@@ -8,23 +9,26 @@ class Visitor;
 class Person
 {
 private:
-	std::wstring m_name;
+	std::string m_name;
 public:
-	Person( const std::wstring& name )
+	Person( const std::string& name )
 		:
 		m_name{ name }
 	{}
+	virtual ~Person() noexcept = default;
+	
 	virtual void accept( Visitor& visitor ) = 0;
-	std::wstring getName() const noexcept
+	std::string getName() const noexcept
 	{
 		return m_name;
 	}
 };
 
-class Good : public Person
+class Good
+	: public Person
 {
 public:
-	Good( const std::wstring& name = L"Good" )
+	Good( const std::string& name = "Good" )
 		:
 		Person( name )
 	{}
@@ -32,10 +36,11 @@ public:
 	void accept( Visitor& visitor ) override;
 };
 
-class Bad : public Person
+class Bad
+	: public Person
 {
 public:
-	Bad( const std::wstring& name = L"Bad" )
+	Bad( const std::string& name = "Bad" )
 		:
 		Person( name )
 	{}
@@ -43,10 +48,11 @@ public:
 	void accept( Visitor& visitor ) override;
 };
 
-class Ugly : public Person
+class Ugly
+	: public Person
 {
 public:
-	Ugly( const std::wstring& name = L"Ugly" )
+	Ugly( const std::string& name = "Ugly" )
 		:
 		Person( name )
 	{}
@@ -63,7 +69,8 @@ public:
 };
 
 // operation 1 on `Person`s
-class VisitorGreets final : public Visitor
+class VisitorGreets final
+	: public Visitor
 {
 public:
 	void visit( Good* person ) override;
@@ -74,7 +81,8 @@ public:
 #include <memory>
 
 // operation 2 on `Person`s
-class VisitorStateful final : public Visitor
+class VisitorStateful final
+	: public Visitor
 {
 	std::unique_ptr<Person> m_otherPerson;
 public:

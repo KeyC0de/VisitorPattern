@@ -4,59 +4,59 @@
 
 void Person::greet()
 {
-	std::wcout << m_name << L" says hi" << L'\n';
+	std::cout << m_name << " says hi" << '\n';
 }
 
 void Good::greet()
 {
-	std::wcout << getName() << L"says hi" << L'\n';
+	std::cout << getName() << "says hi" << '\n';
 }
 
 void Bad::greet()
 {
-	std::wcout << getName() << L"says hi" << L'\n';
+	std::cout << getName() << "says hi" << '\n';
 }
 
 void Ugly::greet()
 {
-	std::wcout << getName() << L"says hi" << L'\n';
+	std::cout << getName() << "says hi" << '\n';
 }
 
 void Good::greet( Good* otherPerson )
 {
-	std::wcout << "Good greets " << otherPerson->getName() << L'\n';
+	std::cout << "Good greets " << otherPerson->getName() << '\n';
 }
 void Good::greet( Bad* otherPerson )
 {
-	std::wcout << "Good greets " << otherPerson->getName() << L'\n';
+	std::cout << "Good greets " << otherPerson->getName() << '\n';
 }
 void Good::greet( Ugly* otherPerson )
 {
-	std::wcout << "Good greets " << otherPerson->getName() << L'\n';
+	std::cout << "Good greets " << otherPerson->getName() << '\n';
 }
 
 void Bad::greet( Good* otherPerson )
 {
-	std::wcout << "Bad greets " << otherPerson->getName() << L'\n';
+	std::cout << "Bad greets " << otherPerson->getName() << '\n';
 }
 void Bad::greet( Bad* otherPerson )
 {
-	std::wcout << "Bad greets " << otherPerson->getName() << L'\n';
+	std::cout << "Bad greets " << otherPerson->getName() << '\n';
 }
 void Bad::greet( Ugly* otherPerson )
 {
-	std::wcout << "Bad greets " << otherPerson->getName() << L'\n';
+	std::cout << "Bad greets " << otherPerson->getName() << '\n';
 }
 
 void Ugly::greet( Good* otherPerson )
 {
-	std::wcout << "Ugly greets " << otherPerson->getName() << L'\n';
+	std::cout << "Ugly greets " << otherPerson->getName() << '\n';
 }
 void Ugly::greet( Bad* otherPerson )
 {
-	std::wcout << "Ugly greets " << otherPerson->getName() << L'\n';
+	std::cout << "Ugly greets " << otherPerson->getName() << '\n';
 }
 void Ugly::greet( Ugly* otherPerson )
 {
-	std::wcout << "Ugly greets " << otherPerson->getName() << L'\n';
+	std::cout << "Ugly greets " << otherPerson->getName() << '\n';
 }

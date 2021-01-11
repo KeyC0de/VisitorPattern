@@ -1,13 +1,14 @@
 #include "no_visitor.h"
 
+
 int main()
 {
 	Person* pg = new Good{};
-	Person* pg2 = new Good{ L"Good2" };
+	Person* pg2 = new Good{ "Good2" };
 	Person* pb = new Bad{};
-	Person* pb2 = new Bad{ L"Bad2" };
+	Person* pb2 = new Bad{ "Bad2" };
 	Person* pu = new Ugly{};
-	Person* pu2 = new Ugly{ L"Ugly2" };
+	Person* pu2 = new Ugly{ "Ugly2" };
 
 	// single dispatch
 	pg->greet();
