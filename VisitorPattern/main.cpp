@@ -17,13 +17,15 @@ int main()
 
 	// What happens when objects interact with other objects?
 	// double dispatch - aka polymorphism
-	// Impossible (in C++/Java etc but not on functional languages)
+	// Impossible in C++/Java etc. (but not on functional languages)
 	//		without the visitor pattern!
-	// remember the algorithm for dispatching objects!
 
 	// uncomment these and you'll see compile errors.
 	// You can't do double dispatch without Visitor in C++!
-	//pg->greet( pg2 );
+	//pg->greet( pg2 );	// no instance of overloaded function "Person::greet"
+						// matches the argument list. Argument types are: (Person *), object type is: Person
+		// See? C++ does not consider the dynamic type of the arguments when doing function overload resolution
+		// remember the algorithm for dispatching objects!
 	//pg->greet( pb );
 	//pg->greet( pu );
 	//
@@ -34,6 +36,13 @@ int main()
 	//pu->greet( pg );
 	//pu->greet( pb );
 	//pu->greet( pu2 );
+
+	delete pg;
+	delete pg2;
+	delete pb;
+	delete pb2;
+	delete pu;
+	delete pu2;
 	
 	std::system( "pause" );
 	return 0;

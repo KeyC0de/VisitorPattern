@@ -1,4 +1,5 @@
 #include <string>
+#include <memory>
 
 
 class Good;
@@ -77,8 +78,6 @@ public:
 	void visit( Bad* person ) override;
 	void visit( Ugly* person ) override;
 };
-
-#include <memory>
 
 // operation 2 on `Person`s
 class VisitorStateful final

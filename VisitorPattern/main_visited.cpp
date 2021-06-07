@@ -17,12 +17,15 @@ int main()
 	pb->accept( visitorGreets );
 	pu->accept( visitorGreets );
 
-	VisitorStateful visitorStateful{ std::move( pg2 ) };
+	VisitorStateful visitorStateful{std::move( pg2 )};
 
 	pg->accept( visitorStateful );
 	pb2->accept( visitorStateful );
 	pu2->accept( visitorStateful );
 
+	delete pg;
+	delete pb;
+	delete pu;
 	delete pb2;
 
 	std::system( "pause" );
