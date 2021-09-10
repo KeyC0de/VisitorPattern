@@ -1,14 +1,18 @@
+#include <memory>
 #include "with_visitor.h"
+#if defined _DEBUG && !defined NDEBUG
+#	include <vld.h>
+#endif
 
 
 int main()
 {
 	Person* pg = new Good{};
-	Person* pb = new Bad{};
-	Person* pu = new Ugly{};
+	std::unique_ptr<Person> pb = std::make_unique<Bad>();
+	std::unique_ptr<Person> pu = std::make_unique<Ugly>();
 
 	auto pg2 = std::make_unique<Good>( "Good2" );
-	Person* pb2 = new Bad{ "Bad2" };
+	std::unique_ptr<Person> pb2 = std::make_unique<Bad>( "Bad2" );
 	auto pu2 = std::make_unique<Ugly>( "Ugly2" );
 
 	VisitorGreets visitorGreets;
@@ -24,9 +28,6 @@ int main()
 	pu2->accept( visitorStateful );
 
 	delete pg;
-	delete pb;
-	delete pu;
-	delete pb2;
 
 	std::system( "pause" );
 	return 0;

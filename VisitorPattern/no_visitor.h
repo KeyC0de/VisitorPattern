@@ -14,12 +14,17 @@ private:
 public:
 	Person( const std::string& name = "person" )
 		:
-		m_name{ name }
-	{}
+		m_name{name}
+	{
+
+	}
+	virtual ~Person() = default;
+
 	virtual void greet();
 	virtual void greet( Good* otherPerson ) = 0;
 	virtual void greet( Bad* otherPerson ) = 0;
 	virtual void greet( Ugly* otherPerson ) = 0;
+
 	std::string getName() const noexcept
 	{
 		return m_name;
@@ -32,8 +37,10 @@ class Good
 public:
 	Good( const std::string& name = "Good" )
 		:
-		Person( name )
-	{}
+		Person{name}
+	{
+
+	}
 
 	virtual void greet() override;
 	void greet( Good* otherPerson ) override;
@@ -47,8 +54,10 @@ class Bad
 public:
 	Bad( const std::string& name = "Bad" )
 		:
-		Person( name )
-	{}
+		Person{name}
+	{
+
+	}
 
 	virtual void greet() override;
 	void greet( Good* otherPerson ) override;
@@ -62,8 +71,10 @@ class Ugly
 public:
 	Ugly( const std::string& name = "Ugly" )
 		:
-		Person( name )
-	{}
+		Person{name}
+	{
+
+	}
 
 	virtual void greet() override;
 	void greet( Good* otherPerson ) override;

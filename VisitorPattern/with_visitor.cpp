@@ -19,36 +19,39 @@ void Ugly::accept( Visitor& visitor )
 
 void VisitorGreets::visit( Good* person )
 {
-	std::cout << person->getName() << " sends greetings" << '\n';
+	std::cout << person->getName()
+		<< " sends greetings\n";
 }
 
 void VisitorGreets::visit( Bad* person )
 {
-	std::cout << person->getName() << " sends greetings" << '\n';
+	std::cout << person->getName()
+		<< " sends greetings\n";
 }
 
 void VisitorGreets::visit( Ugly* person )
 {
-	std::cout << person->getName() << " sends greetings" << '\n';
+	std::cout << person->getName()
+		<< " sends greetings\n";
 }
 
 void VisitorStateful::visit( Good* person )
 {
 	std::cout << person->getName()
 		<< " sends greetings to " 
-		<< m_otherPerson->getName() << '\n';
+		<< m_pOtherPerson->getName() << '\n';
 }
 
 void VisitorStateful::visit( Bad* person )
 {
 	std::cout << person->getName()
 		<< " sends greetings to " 
-		<< m_otherPerson->getName() << '\n';
+		<< m_pOtherPerson->getName() << '\n';
 }
 
 void VisitorStateful::visit( Ugly* person )
 {
 	std::cout << person->getName()
 		<< " sends greetings to " 
-		<< m_otherPerson->getName() << '\n';
+		<< m_pOtherPerson->getName() << '\n';
 }
